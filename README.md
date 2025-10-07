@@ -66,10 +66,116 @@ GEP_API_URL=your_api_url_here
 python 01-linus.py
 ```
 
-## Output
+## Prompts and outputs
 
-The application will:
-1. Print the generated text about Linus Torvalds
-2. Print the Shakespeare-style rewritten version
-3. Print the Markdown-formatted text
-4. Save the final output to a file named "linus.md"
+### 1. Initial text generation prompt:
+```
+"""
+You are a professional and experienced tech blog text writer. 
+Write a 8-10 sentences text on specified topic:
+-------
+{topic}
+-------
+Answer:
+"""
+```
+
+### Result:
+```
+Linus Torvalds, a Finnish software engineer, is widely recognized as the mastermind 
+behind the creation of the Linux kernel, a project that has profoundly influenced software 
+development and technology innovation. Born in 1969, Torvalds initiated the Linux project in 1991, 
+aiming to create a free and open-source operating system. 
+His contributions extend beyond just the kernel; he has been instrumental in fostering a 
+collaborative development environment that has led to the creation of numerous open-source projects. 
+Torvalds's work has not only democratized access to technology but has also set a precedent for 
+community-driven software development. His leadership and vision have inspired countless 
+developers worldwide, making Linux a cornerstone of modern computing. 
+Torvalds's influence is evident in various sectors, from personal computing to cloud infrastructure, 
+and his commitment to open-source principles continues to drive innovation and collaboration in the 
+tech industry.
+
+```
+
+### 2. Shakespeare prompt:
+```
+"""
+You are a professional and experienced text rewriter, specialized in rewriting given text in William Shakespeare style. 
+Lines should be short, resembling old school Shakespeare poetry formatting, like in example below.
+
+Example:
+Torvalds's labors have likewise wielded great 
+Influence upon the practices of software licensing, 
+advocating for the GNU General Public License (GPL). 
+...
+
+Rewrite given passage accordingly:
+-------
+{text}
+-------
+Answer:
+"""
+```
+
+### Result:
+```
+Linus Torvalds, Finnish engineer rare,
+Creator of Linux kernel, a project so fair.
+Born in '69, in '91 he did start,
+A free, open-source OS, his noble art.
+
+Not just kernel, his vision did spread,
+A collaborative realm where many tread.
+Open-source projects, by his hand, took flight,
+Technology's gate, now open to all.
+
+Democratized tech, by his hand it was wrought,
+Community-driven, a new path he sought.
+His guidance, his sight, to developers did gleam,
+Linux, a pillar in computing's dream.
+
+From personal devices to clouds in the sky,
+His influence, vast, in tech industry.
+Open-source principles, his steadfast creed,
+Innovation and teamwork, by his deeds freed.
+```
+
+### 3. MD formatter prompt:
+```
+"""
+You are a professional text formatting assistant. Format given text in Markdown. 
+Add title as 3rd leve heading.
+Highlight names in bold (like **John Doe**, **Sarah**, etc).
+Highlight tech product or brand names in italic (like *Microsoft*, *Git* etc).
+DO NOT include "```markdown" and "```" marks in the final answer!
+-------
+{text}
+-------
+Answer:
+"""
+```
+
+### Result:
+```markdown
+### Linus Torvalds, Finnish Engineer
+
+**Linus Torvalds**, Finnish engineer rare,
+Creator of *Linux* kernel, a project so fair.
+Born in '69, in '91 he did start,
+A free, open-source OS, his noble art.
+
+Not just kernel, his vision did spread,
+A collaborative realm where many tread.
+Open-source projects, by his hand, took flight,
+Technology's gate, now open to all.
+
+Democratized tech, by his hand it was wrought,
+Community-driven, a new path he sought.
+His guidance, his sight, to developers did gleam,
+*Linux*, a pillar in computing's dream.
+
+From personal devices to clouds in the sky,
+His influence, vast, in tech industry.
+Open-source principles, his steadfast creed,
+Innovation and teamwork, by his deeds freed.
+```
