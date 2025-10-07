@@ -63,7 +63,7 @@ GEP_API_URL=your_api_url_here
 ### 5. Run the application
 
 ```bash
-python main.py
+python 01-linus.py
 ```
 
 ## Output
